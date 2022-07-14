@@ -1,6 +1,5 @@
 import React from 'react';
 import {useQuery, gql} from "@apollo/client";
-import { useEffect } from 'react';
 
 const getBooksQuery = gql`
     {
@@ -14,8 +13,6 @@ const getBooksQuery = gql`
 const BookList = () => {
 
     const {loading, error, data} = useQuery(getBooksQuery);
-    
-    
     
     return(
         <div>
