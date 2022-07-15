@@ -1,12 +1,12 @@
 import React from 'react';
 import { useQuery, useMutation } from "@apollo/client";
-import { getAuthorsQuery, addBookMutation } from '../queries/queries';
+import { getAuthorsQuery, addBookMutation, getBooksQuery } from '../queries/queries';
 import { useState } from 'react';
 
 
 const AddBook = () => {
     const {loading, error, data} = useQuery(getAuthorsQuery);
-    const [ addBook, { data: dataAddBook}] = useMutation(addBookMutation);
+    const [ addBook, { data: dataAddBook}] = useMutation(addBookMutation, {refetchQueries: [{ query: getBooksQuery}]},);
     // Todo: update the list books
 
     
@@ -24,7 +24,7 @@ const AddBook = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        addBook({ variables: { name: input.name, genre: input.genre, authorId: input.authorId } });
+        addBook({ variables: { name: input.name, genre: input.genre, authorId: input.authorId }});
     }
 
     
