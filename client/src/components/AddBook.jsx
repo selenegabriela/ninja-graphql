@@ -6,8 +6,8 @@ import { useState } from 'react';
 
 const AddBook = () => {
     const {loading, error, data} = useQuery(getAuthorsQuery);
-    const [ addBook, { data: dataAddBook}] = useMutation(addBookMutation, {refetchQueries: [{ query: getBooksQuery}]},);
-    // Todo: update the list books
+    const [ addBook ] = useMutation(addBookMutation, {refetchQueries: [{ query: getBooksQuery}]},);
+    
 
     
     const [ input, setInput ] = useState({
