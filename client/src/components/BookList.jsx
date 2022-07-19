@@ -21,7 +21,7 @@ const BookList = () => {
                    
                 }
             </ul>
-            {selected ? <BookDetails bookId={selected}/> : <div>No book selected</div>}
+            {selected ? <BookDetails bookId={selected}/> : <div className='book-details'>No book selected...</div>}
         </div>
     )
 }

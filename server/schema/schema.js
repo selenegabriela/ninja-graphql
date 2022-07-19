@@ -71,7 +71,6 @@ const RootQuery = new GraphQLObjectType({
                 // Parameters: 
                 // 1. The array where we want to search.
                 // 2. The element id we want.
-                console.log(args.id);
                 // return _.find(books, {id: args.id});
                 return Book.findById(args.id);
             }
